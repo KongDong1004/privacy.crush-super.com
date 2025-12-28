@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.jpg", // We will need to create this or placeholder
+        url: "/og-image.png",
         width: 1200,
-        height: 630,
-        alt: "Privacy Pixel Interface",
+        height: 1200,
+        alt: "Privacy Pixel - Secure Browser-based Redaction",
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Privacy Pixel - Secure Browser-based Redaction",
     description: "Redact sensitive information from images securely in your browser. No server uploads.",
-    // images: ["/og-image.jpg"], 
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
