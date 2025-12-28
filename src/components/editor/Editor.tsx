@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useImageStore } from "@/store/image-store";
 import { ImageUploader } from "./ImageUploader";
 import { Toolbar } from "./Toolbar";
@@ -29,35 +30,40 @@ export function Editor() {
                                 {[...Array(4)].map((_, i) => (
                                     <div key={i} className="flex gap-8 shrink-0">
                                         <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-3">
-                                            <img
+                                            <Image
                                                 src="/demo/1.png"
-                                                className="w-full h-full object-cover"
                                                 alt="Cyberpunk fashion model with face obfuscated for privacy"
-                                                loading="eager"
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                                priority={i === 0}
                                             />
                                         </div>
                                         <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-2 mt-12">
-                                            <img
+                                            <Image
                                                 src="/demo/2.png"
-                                                className="w-full h-full object-cover"
                                                 alt="High fashion photography with artistic mosaic censorship"
-                                                loading="eager"
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
                                         <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-1">
-                                            <img
+                                            <Image
                                                 src="/demo/3.png"
-                                                className="w-full h-full object-cover"
                                                 alt="Fitness influencer mirror selfie with face blurred"
-                                                loading="eager"
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
                                         <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-3 mt-12">
-                                            <img
+                                            <Image
                                                 src="/demo/4.png"
-                                                className="w-full h-full object-cover"
                                                 alt="Abstract fashion portrait with pixelated privacy shield"
-                                                loading="eager"
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
                                     </div>
