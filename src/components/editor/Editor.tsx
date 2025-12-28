@@ -28,17 +28,37 @@ export function Editor() {
                                 {/* Duplicate images to create infinite loop effect */}
                                 {[...Array(4)].map((_, i) => (
                                     <div key={i} className="flex gap-8 shrink-0">
-                                        <div className="w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-3">
-                                            <img src="/demo/1.png" className="w-full h-full object-cover" alt="Cyberpunk fashion model with face obfuscated for privacy" />
+                                        <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-3">
+                                            <img
+                                                src="/demo/1.png"
+                                                className="w-full h-full object-cover"
+                                                alt="Cyberpunk fashion model with face obfuscated for privacy"
+                                                loading="eager"
+                                            />
                                         </div>
-                                        <div className="w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-2 mt-12">
-                                            <img src="/demo/2.png" className="w-full h-full object-cover" alt="High fashion photography with artistic mosaic censorship" />
+                                        <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-2 mt-12">
+                                            <img
+                                                src="/demo/2.png"
+                                                className="w-full h-full object-cover"
+                                                alt="High fashion photography with artistic mosaic censorship"
+                                                loading="eager"
+                                            />
                                         </div>
-                                        <div className="w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-1">
-                                            <img src="/demo/3.png" className="w-full h-full object-cover" alt="Fitness influencer mirror selfie with face blurred" />
+                                        <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl rotate-1">
+                                            <img
+                                                src="/demo/3.png"
+                                                className="w-full h-full object-cover"
+                                                alt="Fitness influencer mirror selfie with face blurred"
+                                                loading="eager"
+                                            />
                                         </div>
-                                        <div className="w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-3 mt-12">
-                                            <img src="/demo/4.png" className="w-full h-full object-cover" alt="Abstract fashion portrait with pixelated privacy shield" />
+                                        <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl -rotate-3 mt-12">
+                                            <img
+                                                src="/demo/4.png"
+                                                className="w-full h-full object-cover"
+                                                alt="Abstract fashion portrait with pixelated privacy shield"
+                                                loading="eager"
+                                            />
                                         </div>
                                     </div>
                                 ))}

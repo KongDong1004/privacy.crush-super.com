@@ -185,12 +185,48 @@ export function Canvas() {
         setCurrentRect(null);
     };
 
+    // --- Touch Handlers (Mobile) ---
+    const getTouchCoords = (e: React.TouchEvent) => {
+        const canvas = canvasRef.current;
+        if (!canvas) return { x: 0, y: 0 };
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        return {
+            x: (touch.clientX - rect.left) * scaleX,
+            y: (touch.clientY - rect.top) * scaleY
+        };
+    };
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        e.preventDefault(); // Prevent scrolling
+        const { x, y } = getTouchCoords(e);
+        setIsDrawing(true);
+        setStartPos({ x, y });
+        setCurrentRect({ x, y, w: 0, h: 0 });
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        e.preventDefault();
+        if (!isDrawing || !startPos) return;
+        const { x, y } = getTouchCoords(e);
+        const w = x - startPos.x;
+        const h = y - startPos.y;
+        setCurrentRect({ x: startPos.x, y: startPos.y, w, h });
+    };
+
+    const onTouchEnd = (e: React.TouchEvent) => {
+        e.preventDefault();
+        onMouseUp(); // Reuse mouse up logic for finishing draw
+    };
+
     return (
         <div ref={containerRef} className="relative flex h-full w-full items-center justify-center overflow-auto bg-gray-100 p-8 dark:bg-gray-900">
             <div className="relative shadow-2xl">
                 <canvas
                     ref={canvasRef}
-                    className="bg-white object-contain"
+                    className="bg-white object-contain touch-none"
                     style={{
                         maxWidth: '100%',
                         maxHeight: 'calc(100vh - 120px)',
@@ -199,7 +235,12 @@ export function Canvas() {
                     onMouseDown={onMouseDown}
                     onMouseMove={onMouseMove}
                     onMouseUp={onMouseUp}
-                    onMouseLeave={onMouseUp} // Auto-commit if leaving canvas 
+                    onMouseLeave={onMouseUp}
+
+                    // Touch Events for Mobile Support
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                 />
             </div>
         </div>
