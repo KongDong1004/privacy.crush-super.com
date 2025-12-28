@@ -30,7 +30,7 @@ export function Toolbar() {
 
     return (
         <aside
-            className="flex w-full flex-col gap-6 border-r bg-white p-6 dark:bg-gray-950 sm:w-80"
+            className="flex w-full flex-col gap-6 border-t md:border-t-0 md:border-r bg-white p-6 dark:bg-gray-950 md:w-80 shrink-0"
             aria-label="Image Editing Tools"
         >
 

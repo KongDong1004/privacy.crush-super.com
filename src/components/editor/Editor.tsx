@@ -12,7 +12,7 @@ export function Editor() {
     return (
         <div className="flex h-screen flex-col bg-background text-foreground">
             <Header />
-            <main className="flex flex-1 overflow-hidden">
+            <main className="flex flex-1 flex-col-reverse md:flex-row overflow-y-auto md:overflow-hidden">
                 {!imageSrc ? (
                     <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-950">
                         {/* Animated Mesh Gradient Background */}
