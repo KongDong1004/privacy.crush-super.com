@@ -54,7 +54,16 @@ export function ImageUploader() {
     };
 
     return (
-        <div className="flex w-full max-w-xl flex-col gap-4">
+        <div className="flex w-full max-w-xl flex-col gap-6 text-center">
+
+            <div className="space-y-2">
+                <h2 className="text-2xl font-bold tracking-tight">Securely hide sensitive info.</h2>
+                <p className="text-muted-foreground">
+                    Blur faces or mosaic private details directly in your browser.<br className="hidden sm:inline" />
+                    No image data is ever uploaded to a server. 100% Private.
+                </p>
+            </div>
+
             <div
                 onClick={handleClick}
                 onDrop={onDrop}
